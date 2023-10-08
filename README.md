@@ -1,2 +1,1 @@
-# Scripts-for-DevOps-tools
-Scripts for automating installation and configuration of popular DevOps tools
+#DevOps Automation: Building a Secure CI/CD Pipeline for Containerized Workload
