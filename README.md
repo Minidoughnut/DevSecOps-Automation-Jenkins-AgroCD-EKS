@@ -11,11 +11,7 @@ This repo demonstrates the implementation of a complete end-to-end production-li
 - [Architecture](#architecture)
 - [Pipeline Workflow](#pipeline-workflow)
 - [Setup Instructions](#setup-instructions)
-- [Security Best Practices](#security-best-practices)
-- [Monitoring and Alerting](#monitoring-and-alerting)
 - [Contributing](#contributing)
-- [License](#license)
-
 
 ## Architecture
 ![Architecture Diagram](path_to_your_image/architecture_diagram.png)
@@ -98,10 +94,6 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure that your code adheres to the project's coding standards and includes necessary tests.
 
-## License
-![License](path_to_your_image/license.png)
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
