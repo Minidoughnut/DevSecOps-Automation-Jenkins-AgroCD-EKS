@@ -30,11 +30,11 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 6. **Artifact Management** *(JFrog Artifactory)*: Successful code passes through, and artifacts are sent to JFrog Artifactory. If the artifacts fail to send, Jenkins notifies the user.
 
-7. **Containerization** *(Docker): Docker builds the Docker image. If Docker build fails, Jenkins notifies the user.
+7. **Containerization** *(Docker)*: Docker builds the Docker image. If Docker build fails, Jenkins notifies the user.
 
 8. **Container Security** *(Trivy)*: Trivy scans the Docker image for vulnerabilities. If vulnerabilities are found, the pipeline fails, and a report is sent to S3.
 
-9. **Cloud Storage** *(AWS S3):
+9. **Cloud Storage** *(AWS S3)*:
 
 10. **Container Registry** *(Docker Hub)*: Docker images are pushed to Docker Hub. If the push fails, Jenkins notifies the user.
 
