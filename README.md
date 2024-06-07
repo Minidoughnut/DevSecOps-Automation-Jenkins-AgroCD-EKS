@@ -26,7 +26,7 @@ This project aims to provide a robust and secure CI/CD pipeline that automates t
 ![Architecture Diagram](path_to_your_image/architecture_diagram.png)
 
 The CI/CD pipeline follows a microservices architecture with the following components:
-1. **Source Code Management:** Git and GitHub
+1. **Source Code Management** *(Git and GitHub)*:
 2. **Continuous Integration:** Jenkins
 3. **Build Management:** Maven
 4. **Testing:** JUnit
