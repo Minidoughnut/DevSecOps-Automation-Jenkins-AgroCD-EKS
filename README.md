@@ -1,80 +1,60 @@
-## DevOps Automation: A Secure CI/CD Pipeline for Containerized Workload with DevSecOps Principles
+## DevSecOps Automation: A Secure CI/CD Pipeline for Containerized Workload
 ---
 
-![CI/CD Pipeline](path_to_your_image/pipeline_overview.png)
 
-Welcome to the Secure CI/CD Pipeline project. This repository demonstrates the implementation of a complete end-to-end production-like CI/CD pipeline, adhering to security best practices and DevSecOps principles. The tools and technologies integrated into this pipeline include Git, GitHub, Jenkins, Maven, JUnit, SonarQube, JFrog Artifactory, Docker, Trivy, AWS S3, Docker Hub, GitHub CLI, EKS, ArgoCD, Prometheus, Grafana, Slack, and HashiCorp Vault.
+## Introduction
+Welcome! 
+This repo demonstrates the implementation of a complete end-to-end production-like CI/CD pipeline that automates the process of building, testing, and deploying applications. It adheres to security best practices and DevSecOps principles. The tools and technologies integrated into this pipeline include Git, GitHub, Jenkins, Maven, JUnit, SonarQube, JFrog Artifactory, Docker, Trivy, AWS S3, Docker Hub, GitHub CLI, EKS, ArgoCD, Prometheus, Grafana, Slack, and HashiCorp Vault.
 
 ## Table of Contents
 - [Introduction](#introduction)
 - [Architecture](#architecture)
-- [Tools and Technologies](#tools-and-technologies)
-- [Features](#features)
-- [Setup Instructions](#setup-instructions)
 - [Pipeline Workflow](#pipeline-workflow)
+- [Setup Instructions](#setup-instructions)
 - [Security Best Practices](#security-best-practices)
 - [Monitoring and Alerting](#monitoring-and-alerting)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
-![Introduction](path_to_your_image/introduction.png)
-
-This project aims to provide a robust and secure CI/CD pipeline that automates the process of building, testing, and deploying applications. By incorporating security measures at every stage, this pipeline ensures that the applications are not only efficiently deployed but also secure.
 
 ## Architecture
 ![Architecture Diagram](path_to_your_image/architecture_diagram.png)
 
+## Pipeline Workflow
 The CI/CD pipeline follows a microservices architecture with the following components:
 1. **Source Code Management** *(Git and GitHub)*: An event (commit) occurs in the application code GitHub repo.
-2. **Continuous Integration** *(Jenkins)*: GitHub webhook pushes the code to Jenkins triggering the build process.
-3. **Build Management:** *(Maven)*: Maven builds the code. If the build fails, pipeline breaks, Jenkins notifies the team via Slack. If the build succeeds, unit testing commences.
-4. **Testing** *(JUnit)*: JUnite, testing framework for Java conducts the unit testing. If it fails, pipeline breaks, and notification is sent. If application passes test cases, it proceeds to code quality check.  
-5. **Static Code Analysis** (*SonarQube)*: SonarQube scanner scans the code and sends the report to the SonarQube server. The report goes through the quality gate (according to defined conditions such as acceptable bugs, vulnerabilities, or code smells) and gives the output to the web Dashboard. Webhook sends the quality gate status to Jenkins. If the quality gate fails, Jenkins notifies the user.
-6. **Artifact Management** *(JFrog Artifactory)*: Successful code passes through, and artifacts are sent to JFrog Artifactory. If the artifacts fail to send, Jenkins notifies the user.
-7. **Containerization** *(Docker): Docker builds the Docker image. If Docker build fails, Jenkins notifies the user.
-8. **Container Security** *(Trivy)*: Trivy scans the Docker image for vulnerabilities. If vulnerabilities are found, the pipeline fails, and a report is sent to S3.
-9. **Cloud Storage** *(AWS S3):
-10. **Container Registry** *(Docker Hub)*: Docker images are pushed to Docker Hub. If the push fails, Jenkins notifies the user.
-11. **Kubernetes Management:** EKS (Elastic Kubernetes Service)
-12. **Continuous Deployment** *(ArgoCD)*: A senior team member reviews and merges the pull request into the main branch. After merging the feature branch into the main branch, ArgoCD will pull the changes and deploy the application into EKS. 
-13. **Monitoring** *(Prometheus and Grafana)*: Monitors the pipeline and deployed applications. Prometheus collects and stores metrics while Grafana visualizes metrics and sets up alerts.
-14. **Notifications** *(Slack)*: Sends status alerts to team members.
-15. **Secrets Management** *(HashiCorp Vault)*: A secrets management tool that secures sensitive data.
+2. 
+3. **Continuous Integration** *(Jenkins)*: GitHub webhook pushes the code to Jenkins triggering the build process.
 
-## Tools and Technologies
-![Tools and Technologies](path_to_your_image/tools_and_technologies.png)
+4. **Build Management:** *(Maven)*: Maven builds the code. If the build fails, pipeline breaks, Jenkins notifies the team via Slack. If the build succeeds, unit testing commences.
 
-- **Git & GitHub:** Version control and repository hosting.
-- **Jenkins:** Automation server for CI/CD.
-- **Maven:** Build automation tool.
-- **JUnit:** Testing framework for Java.
-- **SonarQube:** Continuous inspection of code quality.
-- **JFrog Artifactory:** Universal repository manager.
-- **Docker:** Containerization platform.
-- **Trivy:** Vulnerability scanner for containers.
-- **AWS S3:** Scalable storage service.
-- **Docker Hub:** Cloud-based registry for Docker images.
-- **GitHub CLI:** Command-line interface for GitHub.
-- **EKS:** Managed Kubernetes service.
-- **ArgoCD:** Continuous delivery tool for Kubernetes.
-- **Prometheus:** Monitoring system.
-- **Grafana:** Analytics and monitoring platform.
-- **Slack:** Communication and collaboration platform.
-- **HashiCorp Vault:** Secrets management tool.
+5. **Testing** *(JUnit)*: JUnite, testing framework for Java conducts the unit testing. If it fails, pipeline breaks, and notification is sent. If application passes test cases, it proceeds to code quality check.  
 
-## Features
-![Features](path_to_your_image/features.png)
+6. **Static Code Analysis** (*SonarQube)*: SonarQube scanner scans the code and sends the report to the SonarQube server. The report goes through the quality gate (according to defined conditions such as acceptable bugs, vulnerabilities, or code smells) and gives the output to the web Dashboard. Webhook sends the quality gate status to Jenkins. If the quality gate fails, Jenkins notifies the user.
 
-- **Automated Build and Test:** Ensures code quality and functionality.
-- **Static Code Analysis:** Identifies potential vulnerabilities and code smells.
-- **Artifact Management:** Stores and manages build artifacts.
-- **Container Security:** Scans for vulnerabilities in Docker images.
-- **Secure Storage:** Uses AWS S3 for storing artifacts.
-- **Continuous Deployment:** Automates the deployment process using ArgoCD.
-- **Monitoring and Alerting:** Monitors the pipeline and deployed applications using Prometheus and Grafana.
-- **Notifications:** Sends alerts and notifications to Slack.
-- **Secrets Management:** Secures sensitive data with HashiCorp Vault.
+7. **Artifact Management** *(JFrog Artifactory)*: Successful code passes through, and artifacts are sent to JFrog Artifactory. If the artifacts fail to send, Jenkins notifies the user.
+
+8. **Containerization** *(Docker): Docker builds the Docker image. If Docker build fails, Jenkins notifies the user.
+
+9. **Container Security** *(Trivy)*: Trivy scans the Docker image for vulnerabilities. If vulnerabilities are found, the pipeline fails, and a report is sent to S3.
+
+10. **Cloud Storage** *(AWS S3):
+
+11. **Container Registry** *(Docker Hub)*: Docker images are pushed to Docker Hub. If the push fails, Jenkins notifies the user.
+
+12. **Kubernetes Management** *(Elastic Kubernetes Service)*:
+- Jenkins clones the Kubernetes manifest repo from the feature branch. If the repo is present, it pulls changes; if not, it clones it. If unable to clone, Jenkins notifies the user.
+- Jenkins updates the image tag in the deployment manifest. If unable to update the tag, Jenkins notifies the user.
+- Jenkins commits the changes and pushes the code to the feature branch. If unable to push changes, Jenkins notifies the user. Jenkins creates a pull request against the main branch. If unable to create a PR, Jenkins notifies the user.
+
+13. **Continuous Deployment** *(ArgoCD)*: A senior team member reviews and merges the pull request into the main branch. After merging the feature branch into the main branch, ArgoCD will pull the changes and deploy the application into EKS. 
+
+14. **Monitoring** *(Prometheus and Grafana)*: Monitors the pipeline and deployed applications. Prometheus collects and stores metrics while Grafana visualizes metrics and sets up alerts.
+
+15. **Notifications** *(Slack)*: Sends status alerts to team members.
+
+16. **Secrets Management** *(HashiCorp Vault)*: A secrets management tool that secures sensitive data.
+
 
 ## Setup Instructions
 ![Setup Instructions](path_to_your_image/setup_instructions.png)
@@ -112,34 +92,6 @@ The CI/CD pipeline follows a microservices architecture with the following compo
    - Create a Slack workspace and channel.
    - Configure Jenkins to send notifications to Slack.
 
-## Pipeline Workflow
-![Pipeline Workflow](path_to_your_image/pipeline_workflow.png)
-
-1. **Code Commit:** Developers commit code changes to GitHub.
-2. **Build and Test:** Jenkins triggers the build, runs tests using Maven and JUnit.
-3. **Code Analysis:** SonarQube performs static code analysis.
-4. **Artifact Management:** Build artifacts are stored in JFrog Artifactory.
-5. **Containerization:** Docker images are created and scanned with Trivy.
-6. **Deployment:** ArgoCD deploys the application to EKS.
-7. **Monitoring:** Prometheus and Grafana monitor the application and pipeline.
-8. **Notifications:** Slack notifications are sent at each stage.
-
-## Security Best Practices
-![Security Best Practices](path_to_your_image/security_best_practices.png)
-
-- **Code Reviews:** Enforce code reviews and approvals before merging.
-- **Static Code Analysis:** Regularly scan code for vulnerabilities.
-- **Container Security:** Use Trivy to scan Docker images for vulnerabilities.
-- **Secrets Management:** Use HashiCorp Vault to manage sensitive data securely.
-- **Access Controls:** Implement strict access controls and IAM policies.
-- **Monitoring:** Continuously monitor the pipeline and applications for security issues.
-
-## Monitoring and Alerting
-![Monitoring and Alerting](path_to_your_image/monitoring_and_alerting.png)
-
-- **Prometheus:** Collects and stores metrics.
-- **Grafana:** Visualizes metrics and sets up alerts.
-- **Slack:** Receives real-time notifications and alerts.
 
 ## Contributing
 ![Contributing](path_to_your_image/contributing.png)
@@ -159,4 +111,3 @@ Thank you for your interest in the Secure CI/CD Pipeline project. For any questi
 
 ---
 
-Make sure to replace `path_to_your_image` with the actual paths or URLs of the images you want to include. These images can be architecture diagrams, icons representing tools, or any other relevant visuals that enhance the readability and appeal of the README.
