@@ -100,7 +100,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 Thank you for your interest in the Secure CI/CD Pipeline project. For any questions or support, feel free to reach out to me at 
 olakunle.solutions@gmail.com. 
 
-[Linkedln profile](https://www.linkedin.com/in/ola4devops/) 
+[![Linkedln profile](images/LinkedIn_Logo.png)](https://www.linkedin.com/in/ola4devops/) 
 
 
 ---
