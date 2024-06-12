@@ -53,7 +53,6 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 
 ## Setup Instructions
-![Setup Instructions](path_to_your_image/setup_instructions.png)
 
 1. **Clone the Repository:**
    ```bash
@@ -90,7 +89,6 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 
 ## Contributing
-![Contributing](path_to_your_image/contributing.png)
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure that your code adheres to the project's coding standards and includes necessary tests.
 
