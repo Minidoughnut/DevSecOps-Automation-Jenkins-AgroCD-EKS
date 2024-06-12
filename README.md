@@ -24,7 +24,7 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 3. **Build Management:** *(Maven)*: Maven builds the code. If the build fails, pipeline breaks, Jenkins notifies the team via Slack. If the build succeeds, unit testing commences.
 
-4. **Testing** *(JUnit)*: JUnite, testing framework for Java conducts the unit testing. If it fails, pipeline breaks, and notification is sent. If application passes test cases, it proceeds to code quality check.  
+4. **Testing** *(JUnit)*: JUnit, a testing framework for Java conducts the unit testing. If it fails, pipeline breaks, and notification is sent. If application passes test cases, it proceeds to code quality check.  
 
 5. **Static Code Analysis** (*SonarQube)*: SonarQube scanner scans the code and sends the report to the SonarQube server. The report goes through the quality gate (according to defined conditions such as acceptable bugs, vulnerabilities, or code smells) and gives the output to the web Dashboard. Webhook sends the quality gate status to Jenkins. If the quality gate fails, Jenkins notifies the user.
 
@@ -34,7 +34,7 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 8. **Container Security** *(Trivy)*: Trivy scans the Docker image for vulnerabilities. If vulnerabilities are found, the pipeline fails, and a report is sent to S3.
 
-9. **Cloud Storage** *(AWS S3)*:
+9. **Cloud Storage** *(AWS S3)*: Scan reports are stored in S3 bucket for reviews.
 
 10. **Container Registry** *(Docker Hub)*: Docker images are pushed to Docker Hub. If the push fails, Jenkins notifies the user.
 
