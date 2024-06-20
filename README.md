@@ -14,7 +14,7 @@ This repo demonstrates the implementation of a complete end-to-end production-li
 - [Contributing](#contributing)
 
 ## Architecture
-![Architecture Diagram](images/CICD Architecture.pptx)
+![Architecture Diagram](https://github.com/Minidoughnut/DevSecOps-Automation-Jenkins-AgroCD-EKS/blob/main/images/CICD%20Architecture.png)
 
 ## Pipeline Workflow
 The CI/CD pipeline follows a microservices architecture with the following components:
