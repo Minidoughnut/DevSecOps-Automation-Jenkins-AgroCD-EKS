@@ -60,10 +60,13 @@ The CI/CD pipeline follows a microservices architecture with the following compo
    cd DevSecOps-Automation-Jenkins-AgroCD-EKS
    ```
 
-2. **Setup Jenkins:**
-   - Install Jenkins and necessary plugins. ![Jenkins_Java_Maven_Git](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/3c609a7423c77bcce6bf7a98a45abd13b5717f3b/scripts/jenkins.sh)
-   - Configure Jenkins with GitHub, Maven, SonarQube, JFrog Artifactory, Docker, and Trivy.
-
+2. **Installations:**
+   - Install and configure Jenkins and necessary plugins including GitHub, Maven, SonarQube, JFrog Artifactory, Docker, Trivy, Open Blue Ocean and Slack.
+ [Jenkins_Java_Maven_Git](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/3c609a7423c77bcce6bf7a98a45abd13b5717f3b/scripts/jenkins.sh)
+   - Install and configure Docker [Docker](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/278155040d69abd80c4cfd291c613e3b54c48ba1/scripts/docker.sh)
+   - Install Trivy [Trivy](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/c94d36767a5718e4dd9ca43b629aa2159e0c50d3/scripts/trivy.sh)
+   - Install AWS CLI [AWS CLI](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/ac4230cd3f8063848a3631e1fa933279629e619a/scripts/AWS_CLI.sh)
+     
 3. **Configure AWS S3:**
    - Create an S3 bucket for storing artifacts.
    - Set up IAM roles and policies for access.
