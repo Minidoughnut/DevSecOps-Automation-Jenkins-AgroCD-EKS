@@ -14,7 +14,7 @@ This repo demonstrates the implementation of a complete end-to-end production-li
 - [Contributing](#contributing)
 
 ## Architecture
-![Architecture Diagram](path_to_your_image/architecture_diagram.png)
+![Architecture Diagram](images/CICD Architecture.pptx)
 
 ## Pipeline Workflow
 The CI/CD pipeline follows a microservices architecture with the following components:
