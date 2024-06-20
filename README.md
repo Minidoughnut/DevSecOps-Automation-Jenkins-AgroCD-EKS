@@ -56,8 +56,8 @@ The CI/CD pipeline follows a microservices architecture with the following compo
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/secure-cicd-pipeline.git
-   cd secure-cicd-pipeline
+   git clone https://github.com/https://github.com/Minidoughnut/DevSecOps-Automation-Jenkins-AgroCD-EKS.git
+   cd DevSecOps-Automation-Jenkins-AgroCD-EKS
    ```
 
 2. **Setup Jenkins:**
