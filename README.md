@@ -61,7 +61,7 @@ The CI/CD pipeline follows a microservices architecture with the following compo
    ```
 
 2. **Setup Jenkins:**
-   - Install Jenkins and necessary plugins. ![Jenkins](scripts/jenkins.sh)
+   - Install Jenkins and necessary plugins. ![Jenkins_Java_Maven_Git](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/3c609a7423c77bcce6bf7a98a45abd13b5717f3b/scripts/jenkins.sh)
    - Configure Jenkins with GitHub, Maven, SonarQube, JFrog Artifactory, Docker, and Trivy.
 
 3. **Configure AWS S3:**
