@@ -60,37 +60,62 @@ The CI/CD pipeline follows a microservices architecture with the following compo
    cd DevSecOps-Automation-Jenkins-AgroCD-EKS
    ```
 
-2. **Installations:**
-   - Install and configure Jenkins and necessary plugins including GitHub, Maven, SonarQube, JFrog Artifactory, Docker, Trivy, Open Blue Ocean and Slack.
+2. **Install Jenkins, Docker, Trivy, AWS CLI, GitHub CLI and Terraform on Server 1 (t2.large):**
+   - Install and integrate Jenkins and necessary plugins including GitHub, Maven, SonarQube, JFrog Artifactory, Docker, Trivy, Open Blue Ocean and Slack.
  [Jenkins_Java_Maven_Git](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/3c609a7423c77bcce6bf7a98a45abd13b5717f3b/scripts/jenkins.sh)
-   - Install and configure Docker [Docker](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/278155040d69abd80c4cfd291c613e3b54c48ba1/scripts/docker.sh)
-   - Install Trivy [Trivy](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/c94d36767a5718e4dd9ca43b629aa2159e0c50d3/scripts/trivy.sh)
-   - Install AWS CLI [AWS CLI](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/ac4230cd3f8063848a3631e1fa933279629e619a/scripts/AWS_CLI.sh)
-   - Install Terraform [Terraform](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/terraform.sh)
-   - Install SonarQube [SonarQube](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/sonarqube.sh)
-   - Install Hashicorp Vault [Harshi Vault](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/harshicorp_vault.sh)
-   - Install Jfrog Artifactory [Jfrog Artifactory](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/jfrog.sh)
+   - Install and configure [Docker](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/278155040d69abd80c4cfd291c613e3b54c48ba1/scripts/docker.sh)
+   - Install [Trivy](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/c94d36767a5718e4dd9ca43b629aa2159e0c50d3/scripts/trivy.sh)
+   - Install [AWS CLI](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/ac4230cd3f8063848a3631e1fa933279629e619a/scripts/AWS_CLI.sh)
+   - Install [Terraform](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/terraform.sh)
+   - Create Jenkins pipelines for automated build, test, and deployment processes.
+
+3. **Install and configure SonarQube and Hashicorp Vault Server 2 (t2.medium instance):**
+   - Install [SonarQube](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/sonarqube.sh)
+   - Install [Hashicorp Vault](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/harshicorp_vault.sh)
+
+4. **Install Jfrog Artifactory Server 3 (t2.medium instance):**
+   - Install [Jfrog Artifactory](https://github.com/Minidoughnut/DevOps-Tools-Installation-Scripts/blob/9c3db70d6796deec576b59655a63c2e80b796271/scripts/jfrog.sh)
      
-3. **Configure AWS S3:**
+5. **Configure AWS S3:**
    - Create an S3 bucket for storing artifacts.
    - Set up IAM roles and policies for access.
 
-4. **Setup Docker Hub:**
+6. **Setup Docker Hub:**
    - Create a Docker Hub account and configure Jenkins to push images.
 
-5. **EKS and ArgoCD:**
-   - Create an EKS cluster.
-   - Install ArgoCD and configure it with EKS.
+7. **Create an EKS cluster:**
+    
+8. **Install ArgoCD and configure it with EKS:**
+   -
+   ```
+   # Create the namespace for ArgoCD
+   kubectl create namespace argocd
 
-6. **Monitoring Tools:**
+   # Install ArgoCD
+   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+   # Create the namespace for ArgoCD
+   kubectl create namespace argocd
+
+   # Install ArgoCD
+   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+   
+   # Get the initial admin password
+   kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode; echo
+
+   ```
+   - Connect ArgoCD to Git Repo and sync application.
+
+
+9. **Monitoring Tools:**
    - Install Prometheus and Grafana on the Kubernetes cluster.
    - Configure alerts and dashboards.
 
-7. **Secrets Management:**
+10. **Secrets Management:**
    - Install and configure HashiCorp Vault.
    - Securely store and manage secrets.
 
-8. **Slack Integration:**
+11. **Slack Integration:**
    - Create a Slack workspace and channel.
    - Configure Jenkins to send notifications to Slack.
 
